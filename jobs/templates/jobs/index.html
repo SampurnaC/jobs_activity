@@ -1,8 +1,42 @@
-{% for job in jobs %}
-    <div class="row justify-content-center mt-3">
-      <div class="col-md-5 col-sm-12 border-bottom position-relative">
-          <p><strong>{{job.title}}</p></strong>
-          
-      </div>
+
+{% extends 'jobs/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<div class="container">
+    <div class="row justify-content-center mt-3 content">
+        <div class="col-md-8 col-sm-12 position-relative">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- <img src="{% static 'images/logo.png' %}" alt="My image"> -->
+                    <h1>Jobs Activity</h1>
+                    <br>
+                    <p>Jobs Activity is platform to keep track of all your applied jobs.</p>
+                    <br>
+                    <div class="d-flex">
+                        <div class="input-group w-auto">
+                            <input type="text" class="form-control" placeholder="Email address" />
+                            <button class="btn btn-primary" type="button">CREATE FREE ACCOUNT</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{% static 'images/logo.png' %}" alt="My image">
+                </div>
+
+            </div>
+        </div>
     </div>
-{% endfor %}    
+
+    
+</div>
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+</footer>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fira+Sans&family=Roboto+Slab&display=swap');
+</style>
+{% endblock %}
