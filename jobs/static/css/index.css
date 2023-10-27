@@ -1,0 +1,26 @@
+h1 {
+    font-family: 'Dancing Script', cursive;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Roboto Slab', serif;
+
+font-size: 5rem;
+}
+
+
+
+@media (min-width:768px){
+    .content {
+        padding-top: 180px;
+    
+    }
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
