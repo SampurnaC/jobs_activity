@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Job
 from .forms import JobForm
+# Create your views here.
 
 def index(request):
     return render(request, 'jobs/index.html')
 
 
 def home(request):
-    jobs = Job.objects.all()
+    current_user=request.user
+    jobs = Job.objects.filter(author_id=current_user.id)
     return render(request, 'jobs/home.html', {'jobs': jobs})
 
 def new(request):
