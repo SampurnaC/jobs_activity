@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_URL = '/signin/'
-LOGIN_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL='/jobs'
 
 # Application definition
 
