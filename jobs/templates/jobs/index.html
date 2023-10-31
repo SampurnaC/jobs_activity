@@ -17,8 +17,11 @@
                         <div class="input-group w-auto">
                             <!-- <input type="text" class="form-control" placeholder="Email address" /> -->
                             <!-- <button class="btn btn-primary" type="button">CREATE FREE ACCOUNT</button> -->
-
-                            <a href="{% url 'signup'%}" class="btn btn-primary">CREATE FREE ACCOUNT</a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'home'%}" class="btn btn-primary">View My Jobs</a>
+                            {% else %}
+                                <a href="{% url 'signup'%}" class="btn btn-primary">CREATE FREE ACCOUNT</a>
+                            {% endif %}
                         </div>
                     </div>
                     <br>
