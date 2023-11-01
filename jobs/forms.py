@@ -17,4 +17,4 @@ class JobForm(forms.ModelForm):
     }))
     class Meta:
         model= Job
-        fields=['title', 'companyname', 'url']
+        fields=['title', 'companyname', 'url', 'status']
