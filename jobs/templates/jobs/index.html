@@ -3,24 +3,25 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<div class="container">
-    <div class="row justify-content-center mt-3 content">
+    <div class="container d-flex align-items-center justify-content-center">
         <div class="col-md-8 col-sm-12 position-relative">
             <div class="row">
                 <div class="col-md-8">
                     <!-- <img src="{% static 'images/logo.png' %}" alt="My image"> -->
                     <h1>Jobs Activity</h1>
                     <br>
-                    <p>Jobs Activity is platform to keep track of all your applied jobs.</p>
+                    <p>Jobs Activity is a platform for managing all of the jobs you have applied for.</p>
+                        
+                    <p>To ensure you don't forget the positions you applied for, compile a list of them.</p>
                     <br>
                     <div class="d-flex">
                         <div class="input-group w-auto">
                             <!-- <input type="text" class="form-control" placeholder="Email address" /> -->
                             <!-- <button class="btn btn-primary" type="button">CREATE FREE ACCOUNT</button> -->
                             {% if user.is_authenticated %}
-                                <a href="{% url 'home'%}" class="btn btn-primary">View My Jobs</a>
+                                <a href="{% url 'home'%}" class="btn btn-warning">View My Jobs</a>
                             {% else %}
-                                <a href="{% url 'signup'%}" class="btn btn-primary">CREATE FREE ACCOUNT</a>
+                                <a href="{% url 'signup'%}" class="btn btn-warning">CREATE FREE ACCOUNT</a>
                             {% endif %}
                         </div>
                     </div>
@@ -35,7 +36,6 @@
     </div>
 
     
-</div>
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
         <span class="text-muted">&copy; 2023</span>
