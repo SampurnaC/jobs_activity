@@ -8,12 +8,12 @@ font-size: 5rem;
 
 
 
-@media (min-width:768px){
+/* @media (min-width:768px){
     .content {
-        padding-top: 100px;
+        padding-top: 60px;
     
     }
-}
+} */
 
 .footer {
     position: fixed;
@@ -23,4 +23,10 @@ font-size: 5rem;
     background-color: red;
     color: white;
     text-align: center;
+}
+body{
+    height: 100vh;
+} 
+.container{
+    height: 85%;
 }
