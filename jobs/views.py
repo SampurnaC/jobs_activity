@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Job
 from .forms import JobForm
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     return render(request, 'jobs/index.html')
@@ -23,3 +24,20 @@ def new(request):
     else:
         form=JobForm()
     return render(request, 'jobs/new.html', {'form': form})
+
+@login_required
+def edit(request, id):
+    current_user=request.user
+    job = Job.objects.filter(author_id=current_user.id).get(id=id)
+    form = JobForm(request.POST or None, instance=job)
+    if form.is_valid():
+        form.save()
+        return redirect('/jobs')
+    return render(request, 'jobs/edit.html', {'job': job, 'form': form})
+
+@login_required
+def delete(request, id):
+    current_user=request.user
+    job=Job.objects.filter(author_id=current_user.id).get(id=id)
+    job.delete()
+    return redirect('/jobs')
