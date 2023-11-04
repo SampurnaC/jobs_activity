@@ -1,11 +1,13 @@
 {% extends 'jobs/base.html' %}
 {% block content %}
 <div class="container mt-3">
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-dark">Create New Job</button>
-    </form>
+    <div class="form-group row">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-warning">Create New Job</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
 
