@@ -21,7 +21,7 @@ def new(request):
             form.instance.author=request.user
             post=form.save()
             post.save()
-            return redirect('/')
+            return redirect('/jobs')
     else:
         form=JobForm()
     return render(request, 'jobs/new.html', {'form': form})
