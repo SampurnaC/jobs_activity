@@ -20,7 +20,7 @@ font-size: 5rem;
 }
 
 @media (max-width:1401px){
-    .yo {
+    .content-body {
         padding-top: 70px;
     
     }
