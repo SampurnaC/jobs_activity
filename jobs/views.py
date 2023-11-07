@@ -13,6 +13,7 @@ def home(request):
     jobs = Job.objects.filter(author_id=current_user.id)
     return render(request, 'jobs/home.html', {'jobs': jobs})
 
+@login_required
 def new(request):
     if request.method == "POST":
         form = JobForm(request.POST)
