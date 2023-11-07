@@ -25,3 +25,10 @@ font-size: 5rem;
     
     }
 }
+
+@media only screen and (max-device-width: 480px) {
+    .content-body {
+        padding-top: 70px;
+    
+    }
+ }
