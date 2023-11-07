@@ -6,15 +6,6 @@ font-family: 'Roboto Slab', serif;
 font-size: 5rem;
 }
 
-
-
-/* @media (min-width:768px){
-    .content {
-        padding-top: 60px;
-    
-    }
-} */
-
 .footer {
     position: fixed;
     left: 0;
@@ -24,9 +15,13 @@ font-size: 5rem;
     color: white;
     text-align: center;
 }
-body{
-    height: 100vh;
-} 
-.container{
-    height: 85%;
+.yo {
+    padding-top: 200px;
+}
+
+@media (max-width:1401px){
+    .yo {
+        padding-top: 70px;
+    
+    }
 }
