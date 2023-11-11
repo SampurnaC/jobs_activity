@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Job
 from .forms import JobForm
 from django.contrib.auth.decorators import login_required
+import datetime
 
 
 def index(request):
-    return render(request, 'jobs/index.html')
+    today = datetime.date.today()
+    year = today.year
+    return render(request, 'jobs/index.html', {'year': year})
 
 
 def home(request):
