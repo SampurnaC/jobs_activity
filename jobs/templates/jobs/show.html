@@ -7,8 +7,12 @@
           <p>Company Name:  {{job.companyname}}</p>
           <p>Job URL:  <a href="{% url 'show' job.id %}">{{job.url}}</a></p>
           <p>Job Applied at:  {{job.created_at|date:'Y-m-d'}}</p>
-          <p>Extra Notes:  {{job.extra_note}}</p>
-
+          <p>Extra Notes:  {% if job.extra_note is not None %}
+            {{job.extra_note}}
+            {%else%}
+            N/A
+          {% endif %}</p>
+          
           <a href="{% url 'new' %}" class="btn btn-warning">Add a New Job</a>
       </div>
     </div>
