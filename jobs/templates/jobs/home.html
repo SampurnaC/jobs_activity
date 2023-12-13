@@ -19,7 +19,7 @@
               <tr>
                 <td>{{job.title}}</td>
                 <td>{{job.companyname}}</td>
-                <td><a href="{{job.url}}" target="_blank">{{job.url}}</a></td>
+                <td><a href="{{job.url}}" target="_blank">{{ job.url|truncatechars:40 }}</a></td>
                 
                 <td><mark>{{job.status}}</mark></td>
                 <td><a href="{% url 'edit' job.id%}" >Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete' job.id %}" >Delete</a></td>
