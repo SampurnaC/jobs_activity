@@ -3,11 +3,11 @@
 
     <div class="row justify-content-center mt-3">
       <div class="col-md-8 col-sm-12 position-relative">
-          <h3>{{job.title}}</h3>
-          <p>{{job.companyname}}</p>
-          <p>{{job.url}}</p>
-          <p>{{job.created_at}}</p>
-          <p>{{job.extra_note}}</p>
+          <h3>Job Title:  {{job.title}}</h3>
+          <p>Company Name:  {{job.companyname}}</p>
+          <p>Job URL:  <a href="{% url 'show' job.id %}">{{job.url}}</a></p>
+          <p>Job Applied at:  {{job.created_at|date:'Y-m-d'}}</p>
+          <p>Extra Notes:  {{job.extra_note}}</p>
 
           <a href="{% url 'new' %}" class="btn btn-warning">Add a New Job</a>
       </div>
