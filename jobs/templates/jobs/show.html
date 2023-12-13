@@ -1,0 +1,14 @@
+{% extends 'jobs/base.html' %}
+{% block content %}
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-8 col-sm-12 position-relative">
+          <h3>{{job.title}}</h3>
+          <p>{{job.companyname}}</p>
+          <p>{{job.url}}</p>
+          <p>{{job.created_at}}</p>
+
+          <a href="{% url 'new' %}" class="btn btn-warning">Add a New Job</a>
+      </div>
+    </div>
+{% endblock %}
