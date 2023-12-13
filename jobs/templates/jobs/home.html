@@ -18,7 +18,7 @@
 
             <tbody>
               <tr>
-                <td>{{job.title}}</td>
+                <td><a href="{% url 'show' job.id %}">{{job.title}}</a></td>
                 <td>{{job.companyname}}</td>
                 <td><a href="{{job.url}}" target="_blank">{{ job.url|truncatechars:40 }}</a></td>
                 <td>{{job.created_at|date:'Y-m-d, H:i'}}</td>
