@@ -17,6 +17,7 @@ class Job(models.Model):
     companyname = models.CharField(max_length=50, default='')
     status = models.CharField(max_length=16, choices=STATUS_CHOICES, default='applied')
     url = models.TextField(max_length=800, default='')
+    extra_note = models.TextField(max_length=800, default='', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
