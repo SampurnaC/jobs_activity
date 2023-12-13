@@ -13,7 +13,7 @@ def index(request):
 
 def home(request):
     current_user=request.user
-    jobs = Job.objects.filter(author_id=current_user.id)
+    jobs = Job.objects.filter(author_id=current_user.id).order_by('-created_at')
     return render(request, 'jobs/home.html', {'jobs': jobs})
 
 @login_required
