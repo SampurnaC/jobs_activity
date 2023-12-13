@@ -15,7 +15,7 @@ class Job(models.Model):
     author=models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     companyname = models.CharField(max_length=50, default='')
     status = models.CharField(max_length=16, choices=STATUS_CHOICES, default='applied')
-    url = models.CharField(max_length=80, default='')
+    url = models.TextField(max_length=800, default='')
 
     def __str__(self):
         return self.title
