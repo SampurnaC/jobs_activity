@@ -45,3 +45,11 @@ def delete(request, id):
     job=Job.objects.filter(author_id=current_user.id).get(id=id)
     job.delete()
     return redirect('/jobs')
+
+@login_required
+def show_job(request, id):
+    current_user=request.user
+    job=Job.objects.filter(author_id=current_user.id).get(id=id)
+    context={'job': job}
+
+    return render(request, 'jobs/show.html', context)
