@@ -1,6 +1,7 @@
 {% extends 'jobs/base.html' %}
 {% block content %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/show.css' %}">
     <div class="row justify-content-center mt-3">
       <div class="col-md-8 col-sm-12 position-relative">
           <h3>Job Title:  {{job.title}}</h3>
