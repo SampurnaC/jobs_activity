@@ -2,5 +2,8 @@ venv
 db.sqlite3
 core/__pycache__
 __pycache__
-static/
+static/admin
+static/css
+static/images
+static/staticfiles.json
 .env
