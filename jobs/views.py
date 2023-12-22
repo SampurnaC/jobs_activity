@@ -16,6 +16,9 @@ def home(request):
     jobs = Job.objects.filter(author_id=current_user.id).order_by('-created_at')
     return render(request, 'jobs/home.html', {'jobs': jobs})
 
+def search_job(request):
+    return render(request, 'jobs/search_job.html')
+
 @login_required
 def new(request):
     if request.method == "POST":
