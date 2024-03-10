@@ -3,7 +3,12 @@ from .models import Job
 from .forms import JobForm
 from django.contrib.auth.decorators import login_required
 import datetime
+from .tasks import test_func
+from django.http import HttpResponse
 
+def test(request):
+    test_func.delay()
+    return HttpResponse("coming from views")
 
 def index(request):
     today = datetime.date.today()
