@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('asynctasks/', views.test, name='test'),
+
     path('', views.index, name='index'),
     path('jobs/', views.home, name='home'),
     path('jobs/new/', views.new, name='new'),
