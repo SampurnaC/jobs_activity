@@ -4,6 +4,17 @@ import datetime
 from django.utils import timezone
 
 # Create your models here.
+
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        return self.category_name
+
 STATUS_CHOICES = (
     ('Applied', 'APPLIED'),
     ('Interview', 'INTERVIEW'),
@@ -20,6 +31,8 @@ class Job(models.Model):
     extra_note = models.TextField(max_length=800, default='', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="category", default=1)
 
     def __str__(self):
         return self.title
