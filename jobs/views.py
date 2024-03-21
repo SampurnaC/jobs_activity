@@ -8,11 +8,6 @@ from django.http import HttpResponse
 import csv
 from django.db.models import Q
 
-def export_to_csv(request):
-    
-    user_id = request.user.id
-    export.delay(user_id)
-    return redirect('home')
     
 def index(request):
     today = datetime.date.today()

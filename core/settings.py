@@ -141,15 +141,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#celery settings
 
-# CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-# CELERY_ACCEPT_CONTENT = ['pickle']
-# CELERY_RESULT_SERIALIZER = 'pickle'
-# CELERY_TASK_SERIALIZER = 'pickle'
-# CELERY_TIMEZONE = ''
-
-# CELERY_RESULT_BACKEND = 'django-db'
 
 
 # Emailing settings
