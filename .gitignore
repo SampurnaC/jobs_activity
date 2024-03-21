@@ -7,3 +7,4 @@ static/css
 static/images
 static/staticfiles.json
 .env
+.env.production
