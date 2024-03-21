@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'jobs',
     'accounts',
-    'django_celery_results',
 
     'django_bootstrap_icons',
 ]
