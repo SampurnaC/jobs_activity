@@ -9,7 +9,7 @@ urlpatterns = [
     # path('logout/', auth_views.LogoutView.as_view(template_name='accounts/signout.html'), name='logout'),
     path('signin/', views.custom_login, name='signin'),
     path('logout/', views.custom_logout, name='logout'),
-
+    path('activate/<uidb64>/<token>', views.activate, name='activate'),
    
 
 
