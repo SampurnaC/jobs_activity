@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load bootstrap_icons %}
+
   <title>{% block title %}{% endblock %} | Jobs Activity</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +21,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+        <div class="container">
             <a class="nav-link" href="{% url 'index' %}">Jobs Activity</a>
             
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,12 +44,26 @@
               {% endif %}
             </ul>
             
+            {% if user.is_authenticated %}
+
+            <form class="d-flex ms-auto order-5" action="{% url 'home' %}" placeholder="Search">
+              <div class="form-group">
+                <input type="text" name="q" class="form-control" placeholder="Search">
+              </div>
+
+              <button type="submit" class="btn btn-warning">Submit</button>
+            </form>
+
+            {% endif %}
+
           </div>
           
         </div>
         
     </nav>
-
+    <div class="container">
+      {% include 'jobs/includes/messaging.html' %}
+    </div>
 {% block content %}
     
 {% endblock content %}
