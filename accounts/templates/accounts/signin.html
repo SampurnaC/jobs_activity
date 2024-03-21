@@ -3,7 +3,7 @@
     <div class="container col-md-6 mt-3">
         <form action="" method="POST">
             {% csrf_token %}
-            {{form}}
+            {{form.as_p}}
         <button type="submit" class="btn btn-warning mt-3">Login</button>
         </form>
     </div>
