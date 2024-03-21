@@ -1,7 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
+from django.conf import settings
 
 # Create your models here.
 
@@ -24,7 +25,7 @@ STATUS_CHOICES = (
 )
 class Job(models.Model):
     title = models.CharField(max_length=80)
-    author=models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    author=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     companyname = models.CharField(max_length=80, default='')
     status = models.CharField(max_length=30, choices=STATUS_CHOICES, default='applied')
     url = models.TextField(max_length=800, default='')
