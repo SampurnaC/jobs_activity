@@ -3,31 +3,27 @@ from django.http import HttpResponse
 import os
 import csv
 import pandas as pd
-from celery import shared_task
+# from celery import shared_task
 from django.conf import settings
 
-@shared_task(bind=True)
-def export(request, user_id):
+# @shared_task(bind=True)
+# def export(request, user_id):
     
-    objs = Job.objects.filter(author_id=user_id).order_by('-created_at')
-    payload = []
-    for obj in objs:
-        payload.append({
-            'Position': obj.title,
-            'Company Name': obj.companyname,
-            'Status': obj.status,
-            'URL': obj.url,
+#     objs = Job.objects.filter(author_id=user_id).order_by('-created_at')
+#     payload = []
+#     for obj in objs:
+#         payload.append({
+#             'Position': obj.title,
+#             'Company Name': obj.companyname,
+#             'Status': obj.status,
+#             'URL': obj.url,
 
-        })
-    df = pd.DataFrame(payload)
+#         })
+#     df = pd.DataFrame(payload)
 
-    # Get the downloads folder path
-    downloads_folder = os.path.expanduser("~/Downloads")
+#     downloads_folder = os.path.expanduser("~/Downloads")
     
-    # Define the file path
-    file_path = os.path.join(downloads_folder, 'AllJobs.csv')
+#     file_path = os.path.join(downloads_folder, 'AllJobs.csv')
 
-    # Export DataFrame to CSV
-    df.to_csv(file_path, index=False)
+#     df.to_csv(file_path, index=False)
 
-    # df.to_csv(f"yoman1", encoding='UTF-8')
