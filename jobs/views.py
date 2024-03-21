@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Job
+from .models import Job, Category
 from .forms import JobForm
 from django.contrib.auth.decorators import login_required
 import datetime
-from .tasks import test_func
+from .tasks import export
 from django.http import HttpResponse
+import csv
+from django.db.models import Q
 
-def test(request):
-    test_func.delay()
-    return HttpResponse("coming from views")
-
+def export_to_csv(request):
+    
+    user_id = request.user.id
+    export.delay(user_id)
+    return redirect('home')
+    
 def index(request):
     today = datetime.date.today()
     year = today.year
@@ -17,12 +21,19 @@ def index(request):
 
 
 def home(request):
-    current_user=request.user
-    jobs = Job.objects.filter(author_id=current_user.id).order_by('-created_at')
+    current_user = request.user
+    if 'q' in request.GET:
+        q = request.GET['q']
+        multiple_q = Q(Q(title__contains=q) | Q(companyname__icontains=q))
+        jobs = Job.objects.filter(author_id=current_user.id).filter(multiple_q).order_by('-created_at')
+    else:
+        jobs = Job.objects.filter(author_id=current_user.id).order_by('-created_at')
     return render(request, 'jobs/home.html', {'jobs': jobs})
 
-def search_job(request):
-    return render(request, 'jobs/search_job.html')
+def category_jobs(request, id):
+    current_user = request.user
+    jobs = Job.objects.filter(author_id=current_user.id, category_id=id)
+    return render(request, 'jobs/category_jobs.html', {'jobs': jobs})
 
 @login_required
 def new(request):
