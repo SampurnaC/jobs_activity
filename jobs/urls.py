@@ -10,6 +10,5 @@ urlpatterns = [
     path('jobs/<int:id>', views.show_job, name='show'),
     path('jobs/category/<int:id>', views.category_jobs, name='category-jobs'),
     
-    # path('export/', views.export_to_csv, name='export'),
 
 ]

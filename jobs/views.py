@@ -3,7 +3,6 @@ from .models import Job, Category
 from .forms import JobForm
 from django.contrib.auth.decorators import login_required
 import datetime
-from .tasks import export
 from django.http import HttpResponse
 import csv
 from django.db.models import Q
