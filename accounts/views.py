@@ -62,7 +62,6 @@ def signup(request):
             # messages.success(request, f"New account created {user.username}")
             return redirect('/users/signin')
         else:
-            breakpoint()
             for error in list(form.errors.values()):
                 messages.error(request, error)
     else:
