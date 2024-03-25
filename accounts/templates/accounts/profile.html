@@ -28,7 +28,8 @@
                 {{ form.email }}
                 {{ form.description }}
 
-                <a href="/">Change password?</a>
+                <a href="{% url 'password-change' %}">Change password?</a>
+                
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
